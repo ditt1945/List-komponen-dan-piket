@@ -17,7 +17,7 @@ export function Header({ tab, setTab, currentDate }) {
 
     return (
         <header className="mb-8">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-white/5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-gray-200">
                 <div className="flex items-center gap-4">
                     {/* Logo */}
                     <div className="w-12 h-12 rounded-xl bg-[#ff7a00] flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-orange-500/20">
@@ -25,16 +25,16 @@ export function Header({ tab, setTab, currentDate }) {
                     </div>
                     <div>
                         <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#ff7a00]">
-                             Elite
+                            Elite
                         </div>
-                        <h1 className="text-2xl font-bold text-white mt-1">
+                        <h1 className="text-2xl font-bold text-gray-900 mt-1">
                             Dashboard Piket
                         </h1>
-                        <p className="text-xs text-white/40 mt-0.5">{formatDate()}</p>
+                        <p className="text-xs text-gray-500 mt-0.5">{formatDate()}</p>
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2 bg-[#1a1a1a] p-1 rounded-full border border-white/5">
+                <div className="flex items-center gap-2 bg-white p-1 rounded-full border border-gray-200 shadow-sm">
                     <Button
                         variant={tab === "inventaris" ? "primary" : "ghost"}
                         onClick={() => setTab("inventaris")}

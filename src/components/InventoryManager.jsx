@@ -95,11 +95,11 @@ export function InventoryManager({
     return (
         <div className="space-y-6">
             {/* Form Section - More Prominent */}
-            <Card className="border-[#ff7a00]/30 relative overflow-hidden shadow-lg shadow-[#ff7a00]/5">
-                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#ff7a00] to-[#ff9933]"></div>
+            <Card className="border-orange-200 relative overflow-hidden shadow-lg shadow-orange-500/5">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-500 to-orange-400"></div>
                 <div className="mb-6">
-                    <h2 className="text-xl font-bold text-white tracking-tight">Tambah Komponen</h2>
-                    <p className="text-sm text-white/50 mt-1">Daftarkan item baru ke inventaris.</p>
+                    <h2 className="text-xl font-bold text-gray-900 tracking-tight">Tambah Komponen</h2>
+                    <p className="text-sm text-gray-500 mt-1">Daftarkan item baru ke inventaris.</p>
                 </div>
 
                 <div className="space-y-4">
@@ -108,16 +108,16 @@ export function InventoryManager({
                             placeholder="Nama Komponen *"
                             value={nama}
                             onChange={e => setNama(e.target.value)}
-                            className={!nama.trim() && nama.length > 0 ? "border-rose-500/50" : ""}
+                            className={!nama.trim() && nama.length > 0 ? "border-rose-300" : ""}
                         />
                         <Select
                             value={status}
                             onChange={e => setStatus(e.target.value)}
                         >
-                            <option className="bg-[#1a1a1a] text-white" value="NORMAL">Kondisi: NORMAL</option>
-                            <option className="bg-[#1a1a1a] text-white" value="RUSAK">Kondisi: RUSAK</option>
-                            <option className="bg-[#1a1a1a] text-white" value="DIPINJAM">Kondisi: DIPINJAM</option>
-                            <option className="bg-[#1a1a1a] text-white" value="HILANG">Kondisi: HILANG</option>
+                            <option className="bg-white text-gray-900" value="NORMAL">Kondisi: NORMAL</option>
+                            <option className="bg-white text-gray-900" value="RUSAK">Kondisi: RUSAK</option>
+                            <option className="bg-white text-gray-900" value="DIPINJAM">Kondisi: DIPINJAM</option>
+                            <option className="bg-white text-gray-900" value="HILANG">Kondisi: HILANG</option>
                         </Select>
                     </div>
 
@@ -150,46 +150,46 @@ export function InventoryManager({
             <section>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
                     <div>
-                        <h2 className="text-xl font-bold text-white tracking-tight">Cek Komponen Harian</h2>
-                        <p className="text-white/40 text-xs mt-0.5">{filtered.length} dari {items.length} item • Centang yang sudah di-cek hari ini</p>
+                        <h2 className="text-xl font-bold text-gray-900 tracking-tight">Cek Komponen Harian</h2>
+                        <p className="text-gray-500 text-xs mt-0.5">{filtered.length} dari {items.length} item • Centang yang sudah di-cek hari ini</p>
                     </div>
                 </div>
 
                 {/* Simplified Filters - Inline & Subtle */}
-                <div className="flex flex-wrap items-center gap-3 mb-4 p-3 bg-white/[0.02] rounded-xl border border-white/5">
+                <div className="flex flex-wrap items-center gap-3 mb-4 p-3 bg-white rounded-xl border border-gray-200 shadow-sm">
                     <div className="relative flex-1 min-w-[200px]">
                         <Input
-                            className="w-full bg-transparent border-white/10 py-2 pl-9 pr-3 text-sm"
+                            className="w-full bg-transparent border-gray-200 py-2 pl-9 pr-3 text-sm text-gray-900 placeholder:text-gray-400"
                             placeholder="Cari komponen..."
                             value={query}
                             onChange={e => setQuery(e.target.value)}
                         />
-                        <svg className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <svg className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </div>
 
                     <Select
-                        className="bg-transparent border-white/10 py-2 px-3 text-sm w-auto min-w-[140px]"
+                        className="bg-transparent border-gray-200 py-2 px-3 text-sm w-auto min-w-[140px] text-gray-700"
                         value={statusFilter}
                         onChange={e => setStatusFilter(e.target.value)}
                     >
-                        <option className="bg-[#1a1a1a] text-white" value="ALL">Semua Status</option>
-                        <option className="bg-[#1a1a1a] text-white" value="NORMAL">Normal</option>
-                        <option className="bg-[#1a1a1a] text-white" value="RUSAK">Rusak</option>
-                        <option className="bg-[#1a1a1a] text-white" value="DIPINJAM">Dipinjam</option>
-                        <option className="bg-[#1a1a1a] text-white" value="HILANG">Hilang</option>
-                        <option className="bg-[#1a1a1a] text-white" value="BREAKDOWN">Breakdown</option>
+                        <option className="bg-white text-gray-900" value="ALL">Semua Status</option>
+                        <option className="bg-white text-gray-900" value="NORMAL">Normal</option>
+                        <option className="bg-white text-gray-900" value="RUSAK">Rusak</option>
+                        <option className="bg-white text-gray-900" value="DIPINJAM">Dipinjam</option>
+                        <option className="bg-white text-gray-900" value="HILANG">Hilang</option>
+                        <option className="bg-white text-gray-900" value="BREAKDOWN">Breakdown</option>
                     </Select>
 
                     <Select
-                        className="bg-transparent border-white/10 py-2 px-3 text-sm w-auto"
+                        className="bg-transparent border-gray-200 py-2 px-3 text-sm w-auto text-gray-700"
                         value={sortKey}
                         onChange={e => setSortKey(e.target.value)}
                     >
-                        <option className="bg-[#1a1a1a] text-white" value="nama">A-Z</option>
-                        <option className="bg-[#1a1a1a] text-white" value="jumlah">Terbanyak</option>
-                        <option className="bg-[#1a1a1a] text-white" value="rusak">Rusak ↓</option>
+                        <option className="bg-white text-gray-900" value="nama">A-Z</option>
+                        <option className="bg-white text-gray-900" value="jumlah">Terbanyak</option>
+                        <option className="bg-white text-gray-900" value="rusak">Rusak ↓</option>
                     </Select>
                 </div>
 
@@ -210,13 +210,13 @@ export function InventoryManager({
                         return (
                             <div
                                 key={item.id}
-                                className={`group flex items-center justify-between p-4 rounded-xl border bg-[#141414]/50 hover:bg-[#141414] hover:border-[#ff7a00]/20 transition-all ${checked ? 'opacity-50 border-white/5' : 'border-white/5'}`}
+                                className={`group flex items-center justify-between p-4 rounded-xl border bg-white hover:bg-gray-50 hover:border-orange-200 transition-all ${checked ? 'opacity-50 border-gray-100' : 'border-gray-200 shadow-sm'}`}
                             >
                                 <div className="flex items-center gap-4 flex-1">
                                     <label className="cursor-pointer relative">
                                         <input
                                             type="checkbox"
-                                            className="peer h-5 w-5 appearance-none border-2 border-white/20 rounded-lg checked:bg-[#ff7a00] checked:border-[#ff7a00] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff7a00]"
+                                            className="peer h-5 w-5 appearance-none border-2 border-gray-300 rounded-lg checked:bg-[#ff7a00] checked:border-[#ff7a00] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff7a00]"
                                             checked={checked}
                                             onChange={e => onToggleCheck(item.id, e.target.checked)}
                                         />
@@ -226,7 +226,7 @@ export function InventoryManager({
                                     </label>
 
                                     <div className="flex-1 min-w-0">
-                                        <div className="font-semibold text-white text-base truncate">{item.nama}</div>
+                                        <div className="font-semibold text-gray-900 text-base truncate">{item.nama}</div>
                                         <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
                                             {item.status_breakdown
                                                 ? Object.entries(item.status_breakdown).map(([k, v]) => (
@@ -238,7 +238,7 @@ export function InventoryManager({
                                             }
                                             {/* Last checked indicator */}
                                             {!isCheckedToday && lastCheckedDate && (
-                                                <span className="text-[10px] text-white/30 ml-1">
+                                                <span className="text-[10px] text-gray-400 ml-1">
                                                     {relativeTime}
                                                 </span>
                                             )}
@@ -248,8 +248,8 @@ export function InventoryManager({
 
                                 <div className="flex items-center gap-4">
                                     <div className="text-right hidden sm:block">
-                                        <div className="text-xl font-bold text-white tabular-nums">{item.jumlah}</div>
-                                        <div className="text-[9px] uppercase text-white/20 font-bold tracking-wider">Unit</div>
+                                        <div className="text-xl font-bold text-gray-900 tabular-nums">{item.jumlah}</div>
+                                        <div className="text-[9px] uppercase text-gray-400 font-bold tracking-wider">Unit</div>
                                     </div>
                                     <Button
                                         variant="secondary"

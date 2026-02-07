@@ -220,7 +220,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0e0e0e] text-white font-sans selection:bg-orange-500 selection:text-black pb-20">
+    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans selection:bg-orange-500 selection:text-white pb-20">
       <div className="max-w-7xl mx-auto p-4 md:p-8">
         <Header tab={tab} setTab={setTab} />
         <StatsCards items={items} cekMap={cekMap} anggota={anggota} absenMap={absenMap} />

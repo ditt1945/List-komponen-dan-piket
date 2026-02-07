@@ -84,9 +84,9 @@ export function NotificationBanner({ items = [], cekMap = {}, anggota = [], abse
     if (notifications.length === 0) return null
 
     const colors = {
-        warning: 'bg-amber-500/10 border-amber-500/30 text-amber-400',
-        success: 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400',
-        danger: 'bg-rose-500/10 border-rose-500/30 text-rose-400'
+        warning: 'bg-amber-50 border border-amber-200 text-amber-800',
+        success: 'bg-emerald-50 border border-emerald-200 text-emerald-800',
+        danger: 'bg-rose-50 border border-rose-200 text-rose-800'
     }
 
     return (
@@ -94,7 +94,7 @@ export function NotificationBanner({ items = [], cekMap = {}, anggota = [], abse
             {notifications.map(notif => (
                 <div
                     key={notif.key}
-                    className={`flex items-center justify-between p-4 rounded-xl border ${colors[notif.type]} animate-in fade-in slide-in-from-top-2 duration-300`}
+                    className={`flex items-center justify-between p-4 rounded-xl ${colors[notif.type]} animate-in fade-in slide-in-from-top-2 duration-300`}
                 >
                     <div className="flex items-center gap-3">
                         {notif.icon}
@@ -102,7 +102,7 @@ export function NotificationBanner({ items = [], cekMap = {}, anggota = [], abse
                     </div>
                     <button
                         onClick={() => dismiss(notif.key)}
-                        className="p-1 hover:bg-white/10 rounded-lg transition-colors"
+                        className="p-1 hover:bg-black/5 rounded-lg transition-colors"
                         aria-label="Tutup"
                     >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
