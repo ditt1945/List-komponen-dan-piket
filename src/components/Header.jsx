@@ -25,7 +25,7 @@ export function Header({ tab, setTab, currentDate }) {
                     </div>
                     <div>
                         <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#ff7a00]">
-                            Robotic Elite
+                             Elite
                         </div>
                         <h1 className="text-2xl font-bold text-white mt-1">
                             Dashboard Piket
