@@ -146,17 +146,14 @@ export function InventoryManager({
                 </div>
             </Card>
 
-            {/* List Section */}
-            <section>
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-                    <div>
-                        <h2 className="text-xl font-bold text-white tracking-tight">Cek Komponen Harian</h2>
-                        <p className="text-white/40 text-xs mt-0.5">{filtered.length} dari {items.length} item • Centang yang sudah di-cek hari ini</p>
-                    </div>
+            {/* Search Section */}
+            <Card className="border-white/5">
+                <div className="mb-4">
+                    <h2 className="text-xl font-bold text-white tracking-tight">Cari Komponen</h2>
+                    <p className="text-white/40 text-xs mt-0.5">Filter dan urutkan daftar komponen.</p>
                 </div>
 
-                {/* Simplified Filters - Inline & Subtle */}
-                <div className="flex flex-wrap items-center gap-3 mb-4 p-3 bg-white/[0.02] rounded-xl border border-white/5">
+                <div className="flex flex-wrap items-center gap-3 p-3 bg-white/[0.02] rounded-xl border border-white/5">
                     <div className="relative flex-1 min-w-[200px]">
                         <Input
                             className="w-full bg-transparent border-white/10 py-2 pl-9 pr-3 text-sm"
@@ -191,6 +188,16 @@ export function InventoryManager({
                         <option className="bg-[#1a1a1a] text-white" value="jumlah">Terbanyak</option>
                         <option className="bg-[#1a1a1a] text-white" value="rusak">Rusak ↓</option>
                     </Select>
+                </div>
+            </Card>
+
+            {/* List Section */}
+            <section>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                    <div>
+                        <h2 className="text-xl font-bold text-white tracking-tight">Cek Komponen Harian</h2>
+                        <p className="text-white/40 text-xs mt-0.5">{filtered.length} dari {items.length} item • Centang yang sudah di-cek hari ini</p>
+                    </div>
                 </div>
 
                 <div className="space-y-2">
@@ -228,14 +235,27 @@ export function InventoryManager({
                                     <div className="flex-1 min-w-0">
                                         <div className="font-semibold text-white text-base truncate">{item.nama}</div>
                                         <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
-                                            {item.status_breakdown
-                                                ? Object.entries(item.status_breakdown).map(([k, v]) => (
-                                                    <Badge key={k} variant={getStatusVariant(k)}>
-                                                        {k}: {v}
-                                                    </Badge>
-                                                ))
-                                                : <Badge variant="success">NORMAL</Badge>
-                                            }
+                                            {(() => {
+                                                const entries = Object.entries(item.status_breakdown || {})
+                                                    .filter(([, v]) => v > 0)
+                                                if (entries.length === 0) {
+                                                    return <Badge variant="success">NORMAL</Badge>
+                                                }
+                                                const visible = entries.slice(0, 2)
+                                                const remaining = entries.length - visible.length
+                                                return (
+                                                    <>
+                                                        {visible.map(([k, v]) => (
+                                                            <Badge key={k} variant={getStatusVariant(k)}>
+                                                                {k}: {v}
+                                                            </Badge>
+                                                        ))}
+                                                        {remaining > 0 && (
+                                                            <Badge variant="outline">+{remaining} lagi</Badge>
+                                                        )}
+                                                    </>
+                                                )
+                                            })()}
                                             {/* Last checked indicator */}
                                             {!isCheckedToday && lastCheckedDate && (
                                                 <span className="text-[10px] text-white/30 ml-1">
