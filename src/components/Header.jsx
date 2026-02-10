@@ -20,13 +20,10 @@ export function Header({ tab, setTab, currentDate }) {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-gray-200">
                 <div className="flex items-center gap-4">
                     {/* Logo */}
-                    <div className="w-12 h-12 rounded-xl bg-[#ff7a00] flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-orange-500/20">
-                        E
+                    <div className="w-12 h-12 rounded-xl bg-[#ffffff] flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-orange-500/20">
+                        <img src="/eliteputih-removebg-preview.png" alt="Logo" className="w-full h-full object-contain" />
                     </div>
                     <div>
-                        <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#ff7a00]">
-                            Elite
-                        </div>
                         <h1 className="text-2xl font-bold text-gray-900 mt-1">
                             Dashboard Piket
                         </h1>
